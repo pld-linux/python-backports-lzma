@@ -30,12 +30,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Backport of Python 3.3's standard library module lzma for LZMA/XY
 compressed files.
 
-%package -n python3-%{module}
+%package -n python3-backports-%{module}
 Summary:	Backport of Python 3.3's standard library module lzma for LZMA/XY compressed files
 Group:		Libraries/Python
 Requires:	python3-modules < 1:3.3
 
-%description -n python3-%{module}
+%description -n python3-backports-%{module}
 Backport of Python 3.3's standard library module lzma for LZMA/XY
 compressed files
 
@@ -55,7 +55,6 @@ compressed files
 rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %py_install
-%py_postclean
 %endif
 
 %if %{with python3}
@@ -70,13 +69,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.rst
 %dir %{py_sitedir}/backports/%{module}
-%{py_sitedir}/backports/%{module}/*.py[co]
+%{py_sitedir}/backports/%{module}/*.py*
 %attr(755,root,root) %{py_sitedir}/backports/%{module}/*.so
 %{py_sitedir}/backports.%{module}-%{version}-py*.egg-info
 %endif
 
 %if %{with python3}
-%files -n python3-%{module}
+%files -n python3-backports-%{module}
 %defattr(644,root,root,755)
 %doc README.rst
 %dir %{py3_sitedir}/backports/%{module}
