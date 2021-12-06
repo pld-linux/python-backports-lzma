@@ -7,7 +7,7 @@
 Summary:	Backport of Python 3.3's standard library module lzma for LZMA/XY compressed files
 Name:		python-backports-%{module}
 Version:	0.0.12
-Release:	1
+Release:	2
 License:	PSF
 Group:		Libraries/Python
 Source0:	https://github.com/peterjc/backports.lzma/archive/backports.lzma.v%{version}.tar.gz
@@ -23,6 +23,7 @@ BuildRequires:	python-setuptools
 BuildRequires:	python3-devel < 1:3.3
 BuildRequires:	python3-setuptools
 %endif
+Requires:	python-backports
 Requires:	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
